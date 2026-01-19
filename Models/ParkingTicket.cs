@@ -5,31 +5,26 @@ namespace ParkingLotManagementSystem.Models
     public class ParkingTicket
     {
         public int TicketID { get; private set; }
-
         public Vehicle Vehicle { get; private set; }
         public ParkingSlot ParkingSlot { get; private set; }
-        public User User { get; private set; }
-
+        public User IssuedBy { get; private set; }
         public DateTime EntryTime { get; private set; }
-        public DateTime? ExitTime { get; private set; }
 
         public ParkingTicket(
             int ticketId,
             Vehicle vehicle,
             ParkingSlot parkingSlot,
-            User user)
+            User issuedBy,
+            DateTime entryTime)
         {
             TicketID = ticketId;
             Vehicle = vehicle;
             ParkingSlot = parkingSlot;
-            User = user;
-            EntryTime = DateTime.Now;
-        }
-
-        public void CloseTicket()
-        {
-            ExitTime = DateTime.Now;
+            IssuedBy = issuedBy;
+            EntryTime = entryTime;
         }
     }
 }
+
+
 
